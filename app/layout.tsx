@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
 //* Components Imports */
+import ClientOnly from "@/app/components/ClientOnly";
 import Navbar from "@/app/components/navbar/Navbar";
+import RegisterModal from "@/app/components/modals/RegisterModal";
+import ToasterProvider from "@/app/providers/ToasterProvider";
 
 //* Styles Imports */
 import "@/app/globals.css";
@@ -25,7 +28,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <Navbar />
+          <RegisterModal />
+          <ToasterProvider />
+        </ClientOnly>
         {children}
       </body>
     </html>
