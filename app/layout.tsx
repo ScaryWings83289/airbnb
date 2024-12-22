@@ -7,6 +7,7 @@ import ClientOnly from "@/app/components/ClientOnly";
 import LoginModal from "@/app/components/modals/LoginModal";
 import Navbar from "@/app/components/navbar/Navbar";
 import RegisterModal from "@/app/components/modals/RegisterModal";
+import RentModal from "@/app/components/modals/RentModal";
 import ToasterProvider from "@/app/providers/ToasterProvider";
 
 //* Utils Imports */
@@ -35,9 +36,10 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={font.className}>
         <ClientOnly>
-          <Navbar currentUser={currentUser} />
           <LoginModal />
+          <Navbar currentUser={currentUser} />
           <RegisterModal />
+          <RentModal />
           <ToasterProvider />
         </ClientOnly>
         {children}
