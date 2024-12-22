@@ -16,13 +16,11 @@ import Input from "@/app/components/inputs/Input";
 import Modal from "@/app/components/modals/Modal";
 
 //* Hooks Imports */
-import useRegisterModal from "@/app/hooks/useLoginModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 
 const LoginModal = () => {
   const router = useRouter();
   const loginModal = useLoginModal();
-  const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -97,12 +95,12 @@ const LoginModal = () => {
       />
       <div className='text-neutral-500 text-center mt-4 font-light'>
         <div className='flex flex-row items-center justify-center gap-2'>
-          <div>Already have an account? </div>
+          <div>Don&apos;t have an account? </div>
           <div
-            onClick={registerModal.onClose}
+            onClick={loginModal.onClose}
             className='text-neutral-800 cursor-pointer hover:underline'
           >
-            Login{" "}
+            Sign up
           </div>
         </div>
       </div>
