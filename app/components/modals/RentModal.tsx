@@ -19,7 +19,7 @@ import Modal from "@/app/components/modals/Modal";
 
 //* Utils Imports */
 import useRentModal from "@/app/hooks/useRentModal";
-import { CATEGORIES } from "@/app/components/navbar/Categories";
+import { CATEGORIES } from "@/app/data/categories";
 
 enum STEPS {
   CATEGORY = 0,
@@ -67,7 +67,9 @@ const RentModal = () => {
 
   const Map = useMemo(
     () =>
-      dynamic(() => import("../Map"), { ssr: false }) as React.ComponentType<{
+      dynamic(() => import("@/app/components/Map"), {
+        ssr: false,
+      }) as React.ComponentType<{
         center?: number[];
       }>,
     // eslint-disable-next-line react-hooks/exhaustive-deps
