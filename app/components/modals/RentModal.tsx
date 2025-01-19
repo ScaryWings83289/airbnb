@@ -101,8 +101,7 @@ const RentModal = () => {
         rentModal.onClose();
       })
       .catch((error) => {
-        console.error("Error -->", error);
-        toast.error("Something went wrong");
+        toast.error(error?.response?.data?.message || "Something went wrong!");
       })
       .finally(() => setIsLoading(false));
   };

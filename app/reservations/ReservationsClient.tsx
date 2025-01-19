@@ -37,7 +37,9 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
           router.refresh();
         })
         .catch((error) => {
-          toast.error(error?.response?.data?.error);
+          toast.error(
+            error?.response?.data?.message || "Something went wrong!"
+          );
         })
         .finally(() => {
           setDeletingId("");

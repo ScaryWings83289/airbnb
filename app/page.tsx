@@ -9,12 +9,32 @@ import { getListings, IListingParams } from "@/app/actions/getListing";
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import { SafeListing } from "@/app/types";
 
-interface HomeProps {
-  searchParams: IListingParams;
-}
+const Home = async ({
+  searchParams,
+}: {
+  searchParams: Promise<IListingParams>;
+}) => {
+  const {
+    userId,
+    guestCount,
+    roomCount,
+    bathroomCount,
+    startDate,
+    endDate,
+    locationValue,
+    category,
+  } = await searchParams;
 
-const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
+  const listings = await getListings({
+    userId,
+    guestCount,
+    roomCount,
+    bathroomCount,
+    startDate,
+    endDate,
+    locationValue,
+    category,
+  });
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
