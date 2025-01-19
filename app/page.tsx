@@ -5,12 +5,16 @@ import EmptyState from "@/app/components/EmptyState";
 import ListingCard from "@/app/components/listings/ListingCard";
 
 //* Utils Imports */
-import { getListings } from "@/app/actions/getListing";
+import { getListings, IListingParams } from "@/app/actions/getListing";
 import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import { SafeListing } from "@/app/types";
 
-const Home = async () => {
-  const listings = await getListings();
+interface HomeProps {
+  searchParams: IListingParams;
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
