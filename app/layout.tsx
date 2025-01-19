@@ -8,6 +8,7 @@ import LoginModal from "@/app/components/modals/LoginModal";
 import Navbar from "@/app/components/navbar/Navbar";
 import RegisterModal from "@/app/components/modals/RegisterModal";
 import RentModal from "@/app/components/modals/RentModal";
+import SearchModal from "@/app/components/modals/SearchModal";
 import ToasterProvider from "@/app/providers/ToasterProvider";
 
 //* Utils Imports */
@@ -40,6 +41,7 @@ export default async function RootLayout({
           <Navbar currentUser={currentUser} />
           <RegisterModal />
           <RentModal />
+          <SearchModal />
           <ToasterProvider />
         </ClientOnly>
         <div className='pb-20 pt-28'>{children}</div>
