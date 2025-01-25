@@ -18,8 +18,9 @@ import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: "Airbnb",
-  description: "Airbnb clone",
+  title: "Airbnb | Holiday rentals, cabins, beach houses & more",
+  description:
+    "Get an Airbnb for every kind of trip → 7 million holiday rentals → 2 million Guest Favourites → 220+ countries and regions worldwide",
 };
 
 const font = Nunito({
